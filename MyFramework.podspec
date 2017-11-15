@@ -43,4 +43,5 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'Alamofire', '~> 4.5'
   s.dependency 'SwiftyJSON'
+  s.dependency 'SwiftKeychainWrapper'
 end
