@@ -1,0 +1,27 @@
+{
+  "name": "MyFramework",
+  "version": "0.1.0",
+  "summary": "A framwork using UIViewController and UITableView",
+  "description": "This CocoaPod provides the ability to use a UIViewController",
+  "homepage": "https://github.com/alfianhidayat/MyFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "alfianhidayat": "alfian08.ah@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/alfianhidayat/MyFramework.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Source/*.{swift}",
+  "resource_bundles": {
+    "MyFramework": [
+      "Source/*.{storyboard,xib,xcassets,json,imageset,png,bundle}"
+    ]
+  }
+}

@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import MyFramework
 
 class ViewController: UIViewController {
 
+    override func viewDidAppear(_ animated: Bool) {
+        MyFramework.performSegueToFrameworkVC(caller: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
