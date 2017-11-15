@@ -32,11 +32,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SwiftKeychainWrapper
 
 public class FrameworkVC: UIViewController {
     
     @IBOutlet weak var profileText: UILabel!
     @IBOutlet weak var user: UITextField!
+    @IBOutlet weak var dataKeychainText: UILabel!
     //    @IBOutlet weak var tableView: UITableView!
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +59,32 @@ public class FrameworkVC: UIViewController {
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
                 let jsonObject = JSON(json)
-                let profile : String = "Nama : \(jsonObject["name"]) \n Username : \(jsonObject["login"])"
+                let profile : String = "Nama : \(jsonObject["name"])"
                 self.profileText.text = profile
+                let saveSuccessful: Bool = KeychainWrapper.standard.set("\(jsonObject["login"])", forKey: "username")
+                if saveSuccessful {
+                    let alertController = UIAlertController(title: "Message", message:
+                        "Success Save Data", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }else{
+                    let alertController = UIAlertController(title: "Message", message:
+                        "Failed Save Data", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
         }
+    }
+    @IBAction func btnShowKeychain(_ sender: Any) {
+        let retrievedString: String = KeychainWrapper.standard.string(forKey: "username")!
+        dataKeychainText.text = retrievedString
     }
 }
 
