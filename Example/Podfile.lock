@@ -1,5 +1,11 @@
 PODS:
-  - MyFramework (0.1.0)
+  - Alamofire (4.5.1)
+  - MyFramework (0.1.0):
+    - Alamofire (~> 4.5)
+    - SwiftKeychainWrapper
+    - SwiftyJSON
+  - SwiftKeychainWrapper (3.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - MyFramework (from `../`)
@@ -9,7 +15,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  MyFramework: d52005b77958a0b6fa6e731ed4fc0aac0484ebe1
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  MyFramework: dee76a7caa902165796baffcffd70eabbf9088d4
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 63fe6cf0ff118d75462452a2fcd88d45e99df98f
 
