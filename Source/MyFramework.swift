@@ -14,7 +14,8 @@ public class MyFramework {
         let bundleURL = podBundle.url(forResource: "MyFramework", withExtension: "bundle")
         let bundle = Bundle(url: bundleURL!)!
         let storyboard = UIStoryboard(name: "FrameworkStoryboard", bundle: bundle)
-        let vc = storyboard.instantiateInitialViewController()!
+        let vc = storyboard.instantiateInitialViewController() as! QRCodeViewController
+        vc.delegate = caller as! MyFrameworkDelegate
         caller.present(vc, animated: true, completion: nil)
     }
     

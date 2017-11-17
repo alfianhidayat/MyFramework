@@ -21,7 +21,18 @@
   "source_files": "Source/*.{swift}",
   "resource_bundles": {
     "MyFramework": [
-      "Source/*.{storyboard,xib,xcassets,json,imageset,png,bundle}"
+      "Source/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  },
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.5"
+    ],
+    "SwiftyJSON": [
+
+    ],
+    "SwiftKeychainWrapper": [
+
     ]
   }
 }

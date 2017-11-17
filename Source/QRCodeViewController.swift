@@ -12,7 +12,7 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var btnClose: UIButton!
     
-    
+    weak var delegate: MyFrameworkDelegate?
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -93,7 +93,9 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let alertController = UIAlertController(title: "Message", message:
                 stringValue, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default){
-                (UIAlertAction) in self.captureSession.startRunning()
+                (UIAlertAction) in
+                    print(stringValue)
+                    self.delegate?.showQRContent(_str: stringValue)
             })
             self.present(alertController, animated: true, completion: nil)
         }
